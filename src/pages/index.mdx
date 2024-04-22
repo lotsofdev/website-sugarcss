@@ -1,0 +1,44 @@
+---
+layout: ../layouts/markdown.astro
+title: 'Lotsof | Sugarcss'
+author: 'Olivier Bossel'
+date: '22 April 2024'
+---
+
+# Sugarcss
+
+Sugarcss is a lightningcss plugin that gives you access to a lot of advances features like color management/modifiers, easy responsive breakpoints declaration and usage, spaces management and a lot more to discover.
+
+## Installation
+
+First, install the @lotsof|sugarcss package like so:
+
+```bash
+npm i @lotsof/sugarcss
+```
+
+## Using vith Vite
+
+To use lightningcss with Vite, first install the vite package like so:
+
+```bash
+npm i vite -D
+```
+
+Then, create a `vite.config.js` file at the root of your project with the following content:
+
+```js
+import { sugarize } from '@lotsof/sugarcss';
+
+export default {
+  css: {
+    transformer: 'lightningcss',
+    lightningcss: sugarize({
+      minify: true,
+    }),
+  },
+  build: {
+    cssMinify: ‘lightningcss’,
+  },
+};
+```

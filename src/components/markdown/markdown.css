@@ -1,0 +1,21 @@
+.lo-markdown {
+  padding-top: s-space(40);
+
+  h1 {
+    font: var(--typo-h1);
+    margin-bottom: s-space(50);
+  }
+  h2 {
+    font: var(--typo-h2);
+    margin-bottom: s-space(40);
+  }
+  h3 {
+    font: var(--typo-h3);
+    margin-bottom: s-space(40);
+  }
+
+  p {
+    font: var(--typo-p);
+    margin-bottom: s-space(40);
+  }
+}

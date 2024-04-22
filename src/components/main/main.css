@@ -1,0 +1,8 @@
+.lo-main {
+  padding-top: s-space(70);
+  margin: 0 auto;
+  width: 900px;
+  max-width: calc(
+    100% - var(--lo-layout-nav-width) - var(--s-layout-side-padding)
+  );
+}

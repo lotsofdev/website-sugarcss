@@ -1,0 +1,64 @@
+.lo-nav {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(calc(-900px * 0.5 - var(--lo-layout-nav-width)));
+  width: var(--lo-layout-nav-width);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
+    drop-shadow(2px 2px 5px black);
+  animation: lo-nav 3s infinite;
+
+  svg {
+    [fill] {
+      fill: #f6c177;
+    }
+  }
+
+  .logo-lotsof-picto {
+  }
+
+  ._nav {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  ._nav-item {
+  }
+
+  ._nav-link {
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@keyframes lo-nav {
+  0% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
+      drop-shadow(2px 2px 5px black);
+  }
+  20% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
+      drop-shadow(-1px -2px 5px black);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
+      drop-shadow(1px 2px 5px black);
+  }
+  70% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
+      drop-shadow(4px 0px 5px black);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
+      drop-shadow(2px 2px 5px black);
+  }
+}
