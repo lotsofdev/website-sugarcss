@@ -6,6 +6,7 @@ interface Props {
 import '@fontsource/sixtyfour';
 import '@fontsource/vt323';
 
+import LoCrt from '../components/crt/crt.astro';
 
 import __logoLotsofPicto from '../img/logo-lotsof-picto.svg?raw';
 
@@ -48,8 +49,6 @@ const { title } = Astro.props;
 			    <slot />
             </div>
 		</main>
-		<div class="noise"></div>
-		<div class="vignette"></div>
-		<div class="scanlines"></div>
+		<LoCrt />
 	</body>
 </html>

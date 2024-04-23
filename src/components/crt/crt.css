@@ -4,38 +4,154 @@
   overflow-x: hidden;
 } */
 
-.vignette {
+.lo-crt {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 1);
-  /* background: s-color(main); */
-  mask-image: radial-gradient(circle, transparent 80%, black 100%);
   pointer-events: none;
-  /* mix-blend-mode: multiply; */
-  opacity: 0.3;
+
+  ._noise {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent
+      url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    background-size: 1200px;
+    animation: crt-noise 0.1s infinite;
+    opacity: 1;
+  }
+
+  ._scanline-1 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    animation: crt-scanline-1 3s linear infinite;
+
+    ._line {
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      background: #fff;
+      mix-blend-mode: hard-light;
+      box-shadow: 0 0 60px 30px #fff,
+        /* inner white */ 0 0 100px 60px s-color(accent),
+        /* middle magenta */ 0 0 140px 90px s-color(complementary); /* outer cyan */
+    }
+  }
+
+  ._scanline-2 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    /* opacity: 0.05; */
+    animation: crt-scanline-2 4s linear infinite;
+
+    ._line {
+      opacity: 0.05;
+      width: 100%;
+      height: 100%;
+      background: s-color(accent);
+    }
+
+    ._dot {
+      display: none;
+    }
+  }
+
+  ._scanline-3 {
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    width: 60vw;
+    height: 60vh;
+    /* animation: crt-scanline-3 3s linear infinite; */
+
+    ._line {
+      width: 100%;
+      height: 100%;
+      background: s-color(accent);
+      opacity: 0.2;
+      filter: blur(20vw);
+      mix-blend-mode: multiply;
+    }
+
+    ._dot {
+      display: none;
+    }
+  }
+
+  ._dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 4px 4px #fff, 0 0 10px 10px s-color(accent),
+      0 0 15px 15px s-color(accent); /* outer cyan */
+    animation: crt-dot 0.15s linear infinite;
+  }
+
+  ._scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    &:before,
+    &:after {
+      display: block;
+      pointer-events: none;
+      content: '';
+      position: absolute;
+    }
+
+    &:after {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 99999999;
+      background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 1) 51%
+      );
+      background-size: 100% calc(2px * 2);
+      animation: crt-scanlines 0.3s infinite;
+      opacity: 0.2;
+    }
+  }
+
+  ._vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    /* background: s-color(main); */
+    mask-image: radial-gradient(circle, transparent 80%, black 100%);
+    pointer-events: none;
+    /* mix-blend-mode: multiply; */
+    opacity: 0.8;
+  }
 }
 
-.noise {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200vh;
-  background: transparent
-    url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-  background-repeat: repeat;
-  background-size: 700px;
-  animation: bg-animation 0.1s infinite;
-  opacity: 1;
-  pointer-events: none;
-}
-
-@keyframes bg-animation {
+@keyframes crt-noise {
   0% {
     transform: translate(0, 0);
   }
@@ -71,59 +187,73 @@
   }
 }
 
-.scanlines {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-
-  &:before,
-  &:after {
-    display: block;
-    pointer-events: none;
-    content: '';
-    position: absolute;
-  }
-
-  &:before {
-    width: 100%;
-    height: 10px;
-    z-index: 99999999;
-    background: s-color(main);
-    opacity: 0.03;
-    animation: scanline 6s linear infinite;
-  }
-
-  &:after {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99999999;
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(0, 0, 0, 1) 51%
-    );
-    background-size: 100% calc(2px * 2);
-    animation: scanlines 0.3s infinite;
-    opacity: 0.2;
-  }
-}
-
-/* ANIMATE UNIQUE SCANLINE */
-@keyframes scanline {
+@keyframes crt-dot {
   0% {
-    transform: translate3d(0, 100vh, 0);
+    transform: translateX(-100%) scale(0, 0);
+  }
+  50% {
+    transform: translateX(50vw) scale(10, 0.5);
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(100vw) scale(0, 0);
   }
 }
 
-@keyframes scanlines {
+@keyframes crt-scanline-1 {
+  0% {
+    transform: translateY(200px);
+  }
+  100% {
+    transform: translateY(calc(-100vh - 100%));
+  }
+}
+
+@keyframes crt-scanline-2 {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes crt-scanline-3 {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.07;
+  }
+  20% {
+    opacity: 0.05;
+  }
+  30% {
+    opacity: 0.02;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.04;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.01;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.03;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes crt-scanlines {
   0% {
     background-position: 0 4px;
   }

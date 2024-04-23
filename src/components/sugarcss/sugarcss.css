@@ -64,6 +64,6 @@
 }
 
 body {
-  background: s-color(main, background);
+  background: s-color(main, --darken 36);
   color: s-color(main, text);
 }
