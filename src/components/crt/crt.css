@@ -34,7 +34,7 @@
     left: 0;
     width: 100%;
     height: 10px;
-    animation: crt-scanline-1 3s linear infinite;
+    animation: crt-scanline-1 1s linear infinite;
 
     ._line {
       width: 100%;
