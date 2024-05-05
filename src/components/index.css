@@ -1,9 +1,13 @@
 @import './settings/settings.css';
 @import './sugarcss/sugarcss.css';
 
+@import './bkg/bkg.css';
 @import './crt/crt.css';
+@import './header/header.css';
 @import './code/code.css';
+@import './layout/layout.css';
 @import './main/main.css';
 @import './markdown/markdown.css';
 @import './nav/nav.css';
+@import './search/search.css';
 @import './typo/typo.css';

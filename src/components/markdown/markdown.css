@@ -1,21 +1,152 @@
 .lo-markdown {
-  padding-top: s-space(40);
+  padding-top: s-space(100);
+  padding-bottom: s-space(100);
 
   h1 {
-    font: var(--typo-h1);
+    /* font: var(--typo-h1); */
+    font: s-typo(title);
     margin-bottom: s-space(50);
   }
   h2 {
     font: var(--typo-h2);
     margin-bottom: s-space(40);
+    margin-top: s-space(40);
+    color: s-color(accent, text);
   }
   h3 {
     font: var(--typo-h3);
-    margin-bottom: s-space(40);
   }
 
   p {
-    font: var(--typo-p);
     margin-bottom: s-space(40);
+  }
+  .typo-lead + p {
+    margin-bottom: s-space(60);
+  }
+
+  ul,
+  ol {
+    margin-bottom: s-space(40);
+  }
+
+  a {
+    color: s-color(complementary);
+  }
+
+  ._namespace {
+    padding: s-space(30);
+    background: s-color(main, background);
+    color: s-color(accent, text);
+    font: s-typo(code);
+  }
+
+  ._metas {
+    padding: s-space(30);
+    padding-top: 0;
+    background: s-color(main, background);
+    display: flex;
+    gap: s-space(30);
+    margin-bottom: s-space(50);
+  }
+
+  ._status {
+    display: flex;
+    gap: s-space(20);
+  }
+  ._status-value {
+    color: s-color(success);
+    font: s-typo(code);
+  }
+
+  ._since {
+    display: flex;
+    gap: s-space(20);
+  }
+  ._since-value {
+    color: s-color(complementary);
+    font: s-typo(code);
+  }
+
+  ._description {
+    margin-bottom: s-space(50);
+  }
+
+  ._params {
+    ol {
+      margin-bottom: 0 !important;
+
+      > li {
+        display: flex;
+        flex-wrap: wrap;
+        /* gap: s-space(30); */
+
+        > ul {
+          width: 100%;
+          padding: s-space(30);
+        }
+      }
+    }
+
+    ._name {
+      font-weight: bold;
+      flex-grow: 1;
+      background: s-color(main, background);
+      padding: s-space(30);
+    }
+  }
+
+  ._return {
+    li {
+      display: flex;
+    }
+
+    ._description {
+      flex-grow: 1;
+      background: s-color(main, background);
+      padding: s-space(30);
+      margin-bottom: 0;
+    }
+  }
+
+  ._name {
+    font: s-typo(code);
+  }
+
+  ._required {
+    color: s-color(error);
+  }
+
+  ._default {
+    color: s-color(warning);
+    background: s-color(main, background);
+    padding: s-space(30);
+    font: s-typo(code);
+  }
+  ._type {
+    color: s-color(complementary);
+    background: s-color(main, background);
+    padding: s-space(30);
+    font: s-typo(code);
+  }
+
+  ._author {
+    background: s-color(main, background);
+    padding: s-space(40);
+    display: flex;
+    gap: s-space(30);
+    font: s-typo(code);
+
+    &:before {
+      content: 'Author:';
+      display: block;
+    }
+
+    ._name {
+      color: s-color(accent);
+    }
+    ._email {
+      color: s-color(complementary);
+      flex-grow: 1;
+    }
   }
 }

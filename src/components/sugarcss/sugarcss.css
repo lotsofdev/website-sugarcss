@@ -3,23 +3,28 @@
 :root {
   --s-setting-mobile-first: false;
 
+  --s-scrolled-classes-class: scrolled;
+  --s-scrolled-classes-offset: 50;
+
   --s-media-mobile: 0 768px;
   --s-media-tablet: 769px 1024px;
   --s-media-desktop: 1025px;
   --s-media-wide: 1440px;
 
-  --s-layout-max-width: 1440px;
+  --s-layout-max-width: 900px;
   --s-layout-side-padding: 20px;
 
   --s-color-main: #9e9161;
-  --s-color-accent: #dab325;
+  --s-color-accent: #d2b02d;
   --s-color-complementary: #00f0ff;
+  --s-color-ternary: #9ec468;
   --s-color-success: #91ff00;
   --s-color-warning: #ffd500;
   --s-color-error: #ff003b;
   --s-color-info: #00ffff;
 
-  --s-shade-text-main: --lighten 50;
+  --s-shade-text: --lighten 20;
+  --s-shade-text-main: --lighten 35;
   --s-shade-placeholder: --alpha 0.4;
   --s-shade-foreground: --lighten 50;
   --s-shade-background: --darken 40;
@@ -45,10 +50,21 @@
 
   --s-font-family-sans: 'Roboto', sans-serif;
   --s-font-family-serif: 'Merriweather', serif;
+  --s-font-family-code: 'Monaco', sans-serif;
+  --s-font-family-quote: 'Palatino', serif;
+
+  --s-size-easing: linear;
+  --s-size-min: 0;
+  --s-size-max: 80px;
 
   --s-space-easing: out-sin;
   --s-space-min: 0;
   --s-space-max: 120px;
+
+  --s-typo-default: s-font-family(sans) 16px 28px;
+  --s-typo-lead: s-font-family(sans) 26px 40px;
+  --s-typo-title: VT323 s-size(100) 25px 300;
+  --s-typo-code: s-font-family(code);
 }
 
 ::selection {
@@ -64,6 +80,7 @@
 }
 
 body {
+  font: s-typo(default);
   background: s-color(main, --darken 36);
   color: s-color(main, text);
 }

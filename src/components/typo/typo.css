@@ -2,15 +2,16 @@
   --font-title: 'VT323', monospace;
   --font-text: 'Roboto', sans-serif;
 
-  --typo-h1: normal normal 400 100px/60px var(--font-title);
-  --typo-h2: normal normal 400 50px/40px var(--font-title);
-  --typo-h3: normal normal 400 40px/30px var(--font-title);
+  --typo-h1: normal normal 400 s-size(100) / s-size(100) var(--font-title);
+  --typo-h2: normal normal 400 s-size(60) / s-size(60) var(--font-title);
+  --typo-h3: normal normal 400 s-size(40) / s-size(40) var(--font-title);
 
-  --typo-p: normal normal 400 16px/30px var(--font-text);
+  --typo-p: normal normal 400 s-size(25) / s-size(25) var(--font-text);
 }
 
 .typo-h1 {
   font: var(--typo-h1);
+  font: s-typo(title);
 }
 .typo-h2 {
   font: var(--typo-h2);
@@ -20,4 +21,9 @@
 }
 .typo-p {
   font: var(--typo-p);
+}
+
+.typo-lead,
+.typo-lead + p {
+  font: s-typo(lead);
 }

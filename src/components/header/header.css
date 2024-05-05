@@ -1,0 +1,64 @@
+.lo-header {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(calc(-900px * 0.5 - var(--lo-layout-nav-width)));
+  width: var(--lo-layout-nav-width);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  svg {
+    [fill] {
+      fill: s-color(accent, text);
+    }
+  }
+
+  .logo-lotsof-picto {
+    margin-bottom: s-space(100);
+  }
+
+  .logo-lotsof {
+    position: absolute;
+    top: s-space(50);
+    left: var(--lo-layout-nav-width);
+    width: 60px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.1s ease-out;
+
+    [fill] {
+      fill: white;
+    }
+
+    body.scrolled & {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+  }
+}
+
+@keyframes lo-logo {
+  0% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
+      drop-shadow(2px 2px 5px black);
+  }
+  20% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
+      drop-shadow(-1px -2px 5px black);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
+      drop-shadow(1px 2px 5px black);
+  }
+  70% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
+      drop-shadow(4px 0px 5px black);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
+      drop-shadow(2px 2px 5px black);
+  }
+}

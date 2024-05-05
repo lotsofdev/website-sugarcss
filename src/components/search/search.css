@@ -1,0 +1,41 @@
+.lo-search {
+  position: fixed;
+  z-index: 500;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+
+  display: none;
+
+  ._container {
+    @apply s-container;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(100% - s-space(50));
+      height: calc(100% - s-space(50));
+      border: solid 2px s-color(accent);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+  }
+
+  ._input {
+    background: s-color(main, background);
+    padding: s-space(50);
+    width: 100%;
+    outline: none;
+    font: s-typo(code);
+  }
+}
