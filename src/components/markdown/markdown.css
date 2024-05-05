@@ -1,10 +1,10 @@
 .lo-markdown {
-  padding-top: s-space(100);
+  padding-top: 500px;
   padding-bottom: s-space(100);
 
   h1 {
     /* font: var(--typo-h1); */
-    font: s-typo(title);
+    font: s-font(title);
     margin-bottom: s-space(50);
   }
   h2 {
@@ -37,7 +37,7 @@
     padding: s-space(30);
     background: s-color(main, background);
     color: s-color(accent, text);
-    font: s-typo(code);
+    font: s-font(code);
   }
 
   ._metas {
@@ -55,7 +55,7 @@
   }
   ._status-value {
     color: s-color(success);
-    font: s-typo(code);
+    font: s-font(code);
   }
 
   ._since {
@@ -64,7 +64,7 @@
   }
   ._since-value {
     color: s-color(complementary);
-    font: s-typo(code);
+    font: s-font(code);
   }
 
   ._description {
@@ -109,7 +109,7 @@
   }
 
   ._name {
-    font: s-typo(code);
+    font: s-font(code);
   }
 
   ._required {
@@ -120,13 +120,13 @@
     color: s-color(warning);
     background: s-color(main, background);
     padding: s-space(30);
-    font: s-typo(code);
+    font: s-font(code);
   }
   ._type {
     color: s-color(complementary);
     background: s-color(main, background);
     padding: s-space(30);
-    font: s-typo(code);
+    font: s-font(code);
   }
 
   ._author {
@@ -134,7 +134,7 @@
     padding: s-space(40);
     display: flex;
     gap: s-space(30);
-    font: s-typo(code);
+    font: s-font(code);
 
     &:before {
       content: 'Author:';

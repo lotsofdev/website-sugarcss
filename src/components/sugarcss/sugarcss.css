@@ -61,10 +61,10 @@
   --s-space-min: 0;
   --s-space-max: 120px;
 
-  --s-typo-default: s-font-family(sans) 16px 28px;
-  --s-typo-lead: s-font-family(sans) 26px 40px;
-  --s-typo-title: VT323 s-size(100) 25px 300;
-  --s-typo-code: s-font-family(code);
+  --s-font-default: s-font-family(sans) 16px 28px;
+  --s-font-lead: s-font-family(sans) 26px 40px;
+  --s-font-title: VT323 s-size(100) 25px 300;
+  --s-font-code: s-font-family(code);
 }
 
 ::selection {
@@ -80,7 +80,7 @@
 }
 
 body {
-  font: s-typo(default);
+  font: s-font(default);
   background: s-color(main, --darken 36);
   color: s-color(main, text);
 }

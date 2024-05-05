@@ -36,6 +36,6 @@
     padding: s-space(50);
     width: 100%;
     outline: none;
-    font: s-typo(code);
+    font: s-font(code);
   }
 }

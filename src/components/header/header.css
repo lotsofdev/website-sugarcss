@@ -1,14 +1,25 @@
 .lo-header {
   position: fixed;
-  top: 40px;
   left: 50%;
-  transform: translateX(calc(-900px * 0.5 - var(--lo-layout-nav-width)));
-  width: var(--lo-layout-nav-width);
-  height: 100vh;
+  height: 500px;
+  transform: translate(-50%);
+  z-index: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  @apply s-container;
+
+  ._title {
+    position: absolute;
+    top: 50%;
+    font: s-font(title);
+    color: s-color(accent, --lighten 20);
+    text-transform: uppercase;
+    font-size: 200px;
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
+    animation: lo-logo 1s linear infinite;
+  }
 
   svg {
     [fill] {
@@ -16,15 +27,27 @@
     }
   }
 
+  ._logo {
+    position: absolute;
+    top: 150px;
+    left: 120px;
+  }
+
   .logo-lotsof-picto {
-    margin-bottom: s-space(100);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    opacity: 1;
+    transform: translate(-100%, -30%);
+    transition: all 0.1s ease-out;
   }
 
   .logo-lotsof {
     position: absolute;
-    top: s-space(50);
-    left: var(--lo-layout-nav-width);
-    width: 60px;
+    top: 0;
+    left: 0;
+    height: 30px;
     opacity: 1;
     transform: translateX(0);
     transition: all 0.1s ease-out;
@@ -33,32 +56,83 @@
       fill: white;
     }
 
-    body.scrolled & {
+    /* body.scrolled & {
       opacity: 0;
       transform: translateX(-100px);
+    } */
+  }
+
+  .picto-new-n-tasty {
+    position: absolute;
+    top: 65%;
+    left: 70%;
+    width: 300px;
+    transform: translateX(-50%) rotate(13deg);
+    filter: drop-shadow(s-color(ternary, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(ternary, --saturate 100) 0 0 5px);
+    animation: lo-new-n-tasty 0.25s linear infinite;
+    transition: all 0.1s ease-out;
+
+    [fill] {
+      fill: s-color(ternary, --lighten 20);
     }
+
+    /* body.scrolled & {
+      transform: translateX(250%) rotate(13deg);
+    } */
+  }
+}
+
+@keyframes lo-new-n-tasty {
+  0% {
+    filter: drop-shadow(s-color(ternary, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(ternary, --saturate 100) 0 0 5px);
+  }
+  17% {
+    filter: drop-shadow(s-color(ternary, --saturate 100) 0 0 5px)
+      drop-shadow(s-color(ternary, --saturate 100) 0 0 5px);
+  }
+  40% {
+    filter: drop-shadow(s-color(ternary, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(ternary, --saturate 100) 0 0 2px);
+  }
+  48% {
+    filter: drop-shadow(s-color(ternary, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(ternary, --saturate 100) 0 0 5px);
+  }
+  84% {
+    filter: drop-shadow(s-color(ternary, --saturate 100) 0 0 12px)
+      drop-shadow(s-color(ternary, --saturate 100) 0 0 5px);
+  }
+  100% {
+    filter: drop-shadow(s-color(ternary, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(ternary, --saturate 100) 0 0 5px);
   }
 }
 
 @keyframes lo-logo {
   0% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
-      drop-shadow(2px 2px 5px black);
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
   }
-  20% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
-      drop-shadow(-1px -2px 5px black);
+  17% {
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 5px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
   }
-  50% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
-      drop-shadow(1px 2px 5px black);
+  40% {
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 2px);
   }
-  70% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
-      drop-shadow(4px 0px 5px black);
+  48% {
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
+  }
+  84% {
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 12px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
   }
   100% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
-      drop-shadow(2px 2px 5px black);
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
   }
 }
