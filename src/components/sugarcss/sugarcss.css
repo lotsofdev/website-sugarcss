@@ -18,6 +18,7 @@
   --s-color-accent: #d2b02d;
   --s-color-complementary: #00f0ff;
   --s-color-ternary: #9ec468;
+  --s-color-current: #d2b02d;
   --s-color-success: #91ff00;
   --s-color-warning: #ffd500;
   --s-color-error: #ff003b;
@@ -52,6 +53,10 @@
   --s-font-family-serif: 'Merriweather', serif;
   --s-font-family-code: 'Monaco', sans-serif;
   --s-font-family-quote: 'Palatino', serif;
+
+  --s-transition-slow: all 0.3s cubic-bezier(0.745, 0, 0.18, 1);
+  --s-transition-default: all 0.2s cubic-bezier(0.745, 0, 0.18, 1);
+  --s-transition-fast: all 0.1s cubic-bezier(0.745, 0, 0.18, 1);
 
   --s-size-easing: linear;
   --s-size-min: 0;

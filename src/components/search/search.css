@@ -7,17 +7,23 @@
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(10px);
+  pointer-events: none;
+  opacity: 0;
+  @s-transition;
 
-  display: none;
+  .-search & {
+    opacity: 1;
+  }
 
   ._container {
     @apply s-container;
     position: absolute;
-    top: 50%;
+    top: 20vh;
     left: 50%;
+    border: solid 2px s-color(accent);
     transform: translate(-50%, -50%);
 
-    &:after {
+    /* &:after {
       content: '';
       display: block;
       position: absolute;
@@ -28,12 +34,12 @@
       border: solid 2px s-color(accent);
       transform: translate(-50%, -50%);
       pointer-events: none;
-    }
+    } */
   }
 
   ._input {
     background: s-color(main, background);
-    padding: s-space(50);
+    padding: s-space(40);
     width: 100%;
     outline: none;
     font: s-font(code);

@@ -8,6 +8,27 @@
   flex-direction: column;
   align-items: center;
   @apply s-container;
+  @s-transition();
+
+  .scrolled & {
+    height: 80px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 80px;
+    transform: translateX(-50%);
+    @s-transition();
+  }
+
+  .scrolled &:before {
+    background: s-color(main, background);
+  }
 
   ._title {
     position: absolute;
@@ -19,6 +40,13 @@
     filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
       drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
     animation: lo-logo 1s linear infinite;
+    transform: translate(0, -50%);
+    @s-transition();
+
+    .scrolled & {
+      top: 50%;
+      font-size: 50px;
+    }
   }
 
   svg {
@@ -27,10 +55,30 @@
     }
   }
 
+  .lo-nav {
+    position: absolute;
+    z-index: 50;
+    top: 135px;
+    right: 0;
+    font-size: 20px;
+    @s-transition;
+
+    .scrolled & {
+      top: 25px;
+    }
+  }
+
   ._logo {
     position: absolute;
-    top: 150px;
+    top: 140px;
     left: 120px;
+    transform: translateY(-50%);
+    @s-transition();
+
+    .scrolled & {
+      top: 35%;
+      left: 0;
+    }
   }
 
   .logo-lotsof-picto {
@@ -39,8 +87,19 @@
     left: 0;
     height: 60px;
     opacity: 1;
-    transform: translate(-100%, -30%);
-    transition: all 0.1s ease-out;
+    transform: translate(-100%, -50%) scale(1);
+    filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
+      drop-shadow(s-color(accent, --saturate 100) 0 0 5px);
+    animation: lo-logo 1s linear infinite;
+    @s-transition();
+
+    [fill] {
+      fill: s-color(accent, --lighten 20);
+    }
+
+    .scrolled & {
+      transform: translate(-100%, -30%) scale(0.8);
+    }
   }
 
   .logo-lotsof {
@@ -50,16 +109,11 @@
     height: 30px;
     opacity: 1;
     transform: translateX(0);
-    transition: all 0.1s ease-out;
+    @s-transition();
 
     [fill] {
       fill: white;
     }
-
-    /* body.scrolled & {
-      opacity: 0;
-      transform: translateX(-100px);
-    } */
   }
 
   .picto-new-n-tasty {
@@ -75,6 +129,12 @@
 
     [fill] {
       fill: s-color(ternary, --lighten 20);
+    }
+
+    .scrolled & {
+      top: 50%;
+      left: calc(50% + 40px);
+      width: 100px;
     }
 
     /* body.scrolled & {

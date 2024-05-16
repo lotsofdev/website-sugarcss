@@ -2,6 +2,23 @@
 
 ---
 
+<script>
+  import { __querySelectorLive } from '@lotsof/sugar/dom';
+
+  document.addEventListener('lo.search', (e) => {
+    document.body.classList.toggle('-search');
+  });
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') {
+      document.body.classList.remove('-search');
+    }
+  });
+
+  __querySelectorLive('[lo-search]', ($elm: HTMLElement) => {
+    console.log('EL', $elm);
+  });
+</script>
+
 <form class="lo-search">
   <div class="_container">
     <input type="search" class="_input" placeholder="Search" />

@@ -1,56 +1,33 @@
 .lo-nav {
-  position: fixed;
-  top: 270px;
-  left: 50%;
-  transform: translateX(calc(-900px * 0.5 - var(--lo-layout-nav-width)));
-  width: var(--lo-layout-nav-width);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
+  .lo-burger {
+    --s-color-current: #fff;
+  }
+  .lo-menu {
+    position: absolute;
+    top: calc(100% + s-size(10));
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(30px);
+    @s-transition (fast);
 
-  display: none;
-
-  svg {
-    [fill] {
-      fill: s-color(accent, text);
+    &:focus,
+    &:focus-within {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  ._nav {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  ._nav-link {
-    svg {
-      width: 30px;
-      height: 30px;
+  .lo-burger {
+    &.-active,
+    &:focus,
+    &:focus-within {
+      & + .lo-menu {
+        pointer-events: all;
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-  }
-}
-
-@keyframes lo-nav {
-  0% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 100))
-      drop-shadow(2px 2px 5px black);
-  }
-  20% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
-      drop-shadow(-1px -2px 5px black);
-  }
-  50% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
-      drop-shadow(1px 2px 5px black);
-  }
-  70% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
-      drop-shadow(4px 0px 5px black);
-  }
-  100% {
-    filter: drop-shadow(0 0 10px s-color(accent, --lighten 10))
-      drop-shadow(2px 2px 5px black);
   }
 }

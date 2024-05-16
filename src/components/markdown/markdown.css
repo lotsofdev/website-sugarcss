@@ -8,7 +8,8 @@
     margin-bottom: s-space(50);
   }
   h2 {
-    font: var(--typo-h2);
+    font: s-font(title);
+    font-size: s-size(50);
     margin-bottom: s-space(40);
     margin-top: s-space(40);
     color: s-color(accent, text);
