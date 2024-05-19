@@ -1,9 +1,7 @@
+import mdx from '@astrojs/mdx';
 import { sugarize } from '@lotsof/sugarcss';
 import { defineConfig } from 'astro/config';
-
 import __shikiLotsofTheme from './src/shikijs/lotsof.theme.json';
-
-import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({

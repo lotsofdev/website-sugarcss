@@ -5,6 +5,18 @@
 <script>
   import { __querySelectorLive } from '@lotsof/sugar/dom';
 
+  import __AdvancedSelectElement from '@lotsof/advanced-select-element';
+
+  __AdvancedSelectElement.define('lo-search', __AdvancedSelectElement, {
+    items() {
+      return [
+        {
+          value: 'Hello',
+        },
+      ];
+    },
+  });
+
   document.addEventListener('lo.search', (e) => {
     document.body.classList.toggle('-search');
   });
@@ -21,6 +33,8 @@
 
 <form class="lo-search">
   <div class="_container">
-    <input type="search" class="_input" placeholder="Search" />
+    <lo-search>
+      <input type="search" class="_input" placeholder="Search" />
+    </lo-search>
   </div>
 </form>
