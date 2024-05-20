@@ -3,7 +3,7 @@
   left: 50%;
   height: 500px;
   transform: translate(-50%);
-  z-index: 500;
+  z-index: 250;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,7 @@
 
   ._title {
     position: absolute;
-    top: 50%;
+    top: 60%;
     font: s-font(title);
     color: s-color(accent, --lighten 20);
     text-transform: uppercase;
@@ -71,7 +71,7 @@
   ._logo {
     position: absolute;
     top: 140px;
-    left: 120px;
+    left: 0;
     transform: translateY(-50%);
     @s-transition();
 
@@ -118,7 +118,7 @@
 
   .picto-new-n-tasty {
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 70%;
     width: 300px;
     transform: translateX(-50%) rotate(13deg);

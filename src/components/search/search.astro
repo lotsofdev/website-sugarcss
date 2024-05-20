@@ -4,31 +4,66 @@
 
 <script>
   import { __querySelectorLive } from '@lotsof/sugar/dom';
-
   import __AdvancedSelectElement from '@lotsof/advanced-select-element';
+  import { __escapeQueue } from '@lotsof/sugar/keyboard';
+
+  let cachedItems: any[];
+
+  document.addEventListener('advancedSelect.select', (e) => {});
 
   __AdvancedSelectElement.define('lo-search', __AdvancedSelectElement, {
-    items() {
-      return [
+    async items() {
+      if (cachedItems) {
+        return cachedItems;
+      }
+
+      const request = await fetch('/api/doc'),
+        data = await request.json();
+
+      const api = data.map((item: any) => {
+        return {
+          label: `<span class="_scope">API</span> ${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}`,
+          value: item.id.replace(/\//gm, '.').replace(/\.mdx$/, ''),
+        };
+      });
+
+      cachedItems = [
         {
-          value: 'Hello',
+          label: '<span class="_scope">How to</span> Install',
+          value: 'install',
         },
+        {
+          label: '<span class="_scope">How to</span> Use with vite',
+          value: 'vite',
+        },
+        ...api,
       ];
+      return cachedItems;
     },
   });
 
-  document.addEventListener('lo.search', (e) => {
-    document.body.classList.toggle('-search');
-  });
+  let escapeQueuePromise: any;
   document.addEventListener('keyup', (e) => {
-    if (e.key === 'Escape') {
-      document.body.classList.remove('-search');
+    if (e.ctrlKey && e.key === 'p') {
+      // cancel registered escape queue
+      escapeQueuePromise?.cancel?.();
+
+      // toggle search
+      document.body.classList.toggle('-search');
+
+      // focus in search
+      if (document.body.classList.contains('-search')) {
+        (document.querySelector('lo-search input') as HTMLElement)?.focus();
+      }
+
+      // register escape queue
+      escapeQueuePromise = __escapeQueue(() => {
+        document.body.classList.remove('-search');
+      });
     }
   });
 
-  __querySelectorLive('[lo-search]', ($elm: HTMLElement) => {
-    console.log('EL', $elm);
-  });
+  __querySelectorLive('[lo-search]', ($elm: HTMLElement) => {});
 </script>
 
 <form class="lo-search">
