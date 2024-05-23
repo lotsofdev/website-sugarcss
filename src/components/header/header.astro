@@ -6,11 +6,13 @@ import LoNav from '../nav/nav.astro';
 ---
 
 <header class="lo-header">
-  <a class="_logo" href="/" title="">
+  <a class="_logo" href="/" title="Sugarcss">
     <Fragment set:html={__logoLotsofPicto} />
     <Fragment set:html={__logoLotsof} />
   </a>
   <LoNav />
-  <h1 class="_title">Sugarcss</h1>
-  <Fragment set:html={__pictoNewNasty} />
+  <a href="/" title="Sugarcss">
+    <h1 class="_title">Sugarcss</h1>
+    <Fragment set:html={__pictoNewNasty} />
+  </a>
 </header>

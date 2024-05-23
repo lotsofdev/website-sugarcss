@@ -1,4 +1,8 @@
-.typo-h1 {
+.typo-h1,
+.typo-h2,
+.typo-h3,
+.typo-h4,
+.typo-h5 {
   font: s-font(title);
 }
 .typo-h2 {

@@ -6,10 +6,22 @@
   import { __querySelectorLive } from '@lotsof/sugar/dom';
   import __AdvancedSelectElement from '@lotsof/advanced-select-element';
   import { __escapeQueue } from '@lotsof/sugar/keyboard';
+  import { navigate } from 'astro:transitions/client';
+  import { __toSlug } from '../utils/utils';
 
   let cachedItems: any[];
 
-  document.addEventListener('advancedSelect.select', (e) => {});
+  document.addEventListener('advancedSelect.select', (e) => {
+    const item = e.detail.item;
+
+    if (item.value === 'install') {
+      navigate('/docs/install');
+    } else if (item.value === 'vite') {
+      navigate('/docs/vite');
+    } else {
+      navigate(`/doc/${__toSlug(item.value)}`);
+    }
+  });
 
   __AdvancedSelectElement.define('lo-search', __AdvancedSelectElement, {
     async items() {
@@ -21,9 +33,18 @@
         data = await request.json();
 
       const api = data.map((item: any) => {
+        console.log(item);
+
+        let platform = [];
+        try {
+          platform = JSON.parse(item.data.platform);
+        } catch (e) {}
+
+        console.log(platform);
+
         return {
-          label: `<span class="_scope">API</span> ${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}`,
-          value: item.id.replace(/\//gm, '.').replace(/\.mdx$/, ''),
+          label: `<span class="_scope">${platform.map((p) => `<span class="_platform">${p.name}</span>`).join('')}</span> <span class="_name">${item.data.title}</span> <span class="_namespace">${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}</span>`,
+          value: `${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}`,
         };
       });
 

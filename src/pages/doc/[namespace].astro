@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/markdown.astro';
 
+import { __toSlug } from '../../components/utils/utils.js';
+
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -10,7 +12,7 @@ export async function getStaticPaths() {
   for (let [i, docObj] of allDoc.entries()) {
     params.push({
       params: {
-        namespace: docObj.id.replace(/\//gm, '.').replace(/\.mdx$/, ''),
+        namespace: __toSlug(docObj.id),
       },
     });
   }
@@ -23,9 +25,7 @@ const allDoc = await getCollection('sugar'),
 
 let DocItem;
 for (let [i, docObj] of allDoc.entries()) {
-  if (
-    docObj.id.replace(/\//gm, '.').replace(/\.mdx$/, '') === params.namespace
-  ) {
+  if (__toSlug(docObj.id) === params.namespace) {
     DocItem = await docObj.render();
     break;
   }
@@ -33,5 +33,5 @@ for (let [i, docObj] of allDoc.entries()) {
 ---
 
 <Layout>
-  <DocItem?.Content />
+  <DocItem.Content />
 </Layout>
