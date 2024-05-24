@@ -16,6 +16,8 @@
     "@fontsource/sixtyfour": "^5.0.2",
     "@fontsource/vt323": "^5.0.13",
     "@lotsof/sugar": "^0.0.1",
+    "@lotsof/config": "^0.0.1",
+    "@lotsof/docmap": "^0.0.1",
     "@lotsof/advanced-select-element": "0.0.1",
     "@lotsof/sugarcss": "^0.0.1",
     "@pixi/filter-crt": "^5.1.1",

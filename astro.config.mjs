@@ -7,6 +7,9 @@ import __shikiLotsofTheme from './src/shikijs/lotsof.theme.json';
 export default defineConfig({
   integrations: [mdx()],
   vite: {
+    resolve: {
+      preserveSymlinks: true,
+    },
     css: {
       transformer: 'lightningcss',
       lightningcss: sugarize({

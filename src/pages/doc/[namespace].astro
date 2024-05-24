@@ -6,7 +6,7 @@ import { __toSlug } from '../../components/utils/utils.js';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const allDoc = await getCollection('sugar');
+  const allDoc = await getCollection('sugarcss');
 
   const params = [];
   for (let [i, docObj] of allDoc.entries()) {
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   return params;
 }
 
-const allDoc = await getCollection('sugar'),
+const allDoc = await getCollection('sugarcss'),
   params = Astro.params;
 
 let DocItem;
