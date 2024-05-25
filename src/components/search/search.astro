@@ -23,6 +23,24 @@
     }
   });
 
+  function toggleSearch() {
+    // cancel registered escape queue
+    escapeQueuePromise?.cancel?.();
+
+    // toggle search
+    document.body.classList.toggle('-search');
+
+    // focus in search
+    if (document.body.classList.contains('-search')) {
+      (document.querySelector('lo-search input') as HTMLElement)?.focus();
+    }
+
+    // register escape queue
+    escapeQueuePromise = __escapeQueue(() => {
+      document.body.classList.remove('-search');
+    });
+  }
+
   __AdvancedSelectElement.define('lo-search', __AdvancedSelectElement, {
     async items() {
       if (cachedItems) {
@@ -66,25 +84,18 @@
   let escapeQueuePromise: any;
   document.addEventListener('keyup', (e) => {
     if (e.ctrlKey && e.key === 'p') {
-      // cancel registered escape queue
-      escapeQueuePromise?.cancel?.();
-
-      // toggle search
-      document.body.classList.toggle('-search');
-
-      // focus in search
-      if (document.body.classList.contains('-search')) {
-        (document.querySelector('lo-search input') as HTMLElement)?.focus();
-      }
-
-      // register escape queue
-      escapeQueuePromise = __escapeQueue(() => {
-        document.body.classList.remove('-search');
-      });
+      toggleSearch();
     }
   });
 
-  __querySelectorLive('[lo-search]', ($elm: HTMLElement) => {});
+  __querySelectorLive('[lo-search]', ($elm: HTMLElement) => {
+    $elm.addEventListener('pointerup', (e) => {
+      e.preventDefault();
+      setTimeout(() => {
+        toggleSearch();
+      }, 100);
+    });
+  });
 </script>
 
 <form class="lo-search">
