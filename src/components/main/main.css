@@ -2,4 +2,10 @@
   @apply s-container;
   padding-top: s-space(70);
   margin: 0 auto;
+  position: relative;
+
+  @media mobile {
+    overflow-x: hidden;
+    padding-top: 0;
+  }
 }

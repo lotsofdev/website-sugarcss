@@ -6,9 +6,11 @@ interface Props {
 import '@fontsource/sixtyfour';
 import '@fontsource/vt323';
 
+import InternalNav from '../components/internalNav/internalNav.astro';
 import LoHeader from '../components/header/header.astro';
 import LoCrt from '../components/crt/crt.astro';
 import LoSearch from '../components/search/search.astro';
+import LoFooter from '../components/footer/footer.astro';
 
 import __pictoNewNTasta from '../img/picto-new-n-tasty.svg?raw';
 
@@ -20,12 +22,21 @@ import.meta.glob('../**/*.css');
 const { title } = Astro.props;
 ---
 
-<!doctype html>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    if (document.location.pathname === '/') {
+      document.body.classList.add('-home');
+    } else {
+      document.body.classList.remove('-home');
+    }
+  });
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <!-- <link rel="stylesheet" href="/src/css/index.css" /> -->
@@ -34,13 +45,15 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <LoHeader transition:persist />
+    <LoHeader />
     <main class="lo-main">
-      <div class="lo-markdown">
+      <div class="lo-markdown typo-format typo-rhythm">
         <slot />
       </div>
     </main>
-    <LoSearch transition:persist />
+    <InternalNav />
+    <LoFooter />
+    <LoSearch />
     <LoCrt />
   </body>
 </html>

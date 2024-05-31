@@ -1,5 +1,6 @@
 .lo-shortcut {
+  font: s-font(code);
+  color: s-color(accent);
   font-size: 12px;
   text-transform: uppercase;
-  opacity: 0.7;
 }

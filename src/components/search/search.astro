@@ -50,32 +50,52 @@
       const request = await fetch('/api/doc'),
         data = await request.json();
 
-      const api = data.map((item: any) => {
-        console.log(item);
+      const sections: Record<string, any> = {};
+
+      data.forEach((item: any) => {
+        // console.log(item);
 
         let platform = [];
         try {
           platform = JSON.parse(item.data.platform);
         } catch (e) {}
 
-        console.log(platform);
+        // console.log(platform);
 
-        return {
-          label: `<span class="_scope">${platform.map((p) => `<span class="_platform">${p.name}</span>`).join('')}</span> <span class="_name">${item.data.title}</span> <span class="_namespace">${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}</span>`,
+        if (!sections[item.data.type]) {
+          sections[item.data.type] = {
+            type: 'group',
+            label: item.data.type,
+            items: [],
+          };
+        }
+
+        sections[item.data.type].items.push({
+          id: item.id,
+          label: item.data.title,
           value: `${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}`,
-        };
+        });
       });
 
       cachedItems = [
         {
-          label: '<span class="_scope">How to</span> Install',
-          value: 'install',
+          type: 'group',
+          label: 'Documentation',
+          items: [
+            {
+              id: 'install',
+              label: 'How to install',
+              value: 'install',
+            },
+            {
+              id: 'vite',
+              label: 'How to use with vite',
+              value: 'vite',
+            },
+            // ...api,
+          ],
         },
-        {
-          label: '<span class="_scope">How to</span> Use with vite',
-          value: 'vite',
-        },
-        ...api,
+        ...Object.values(sections),
       ];
       return cachedItems;
     },
@@ -88,6 +108,14 @@
     }
   });
 
+  const $container = document.querySelector('.lo-search ._container');
+  document.querySelector('.lo-search')?.addEventListener('pointerup', (e) => {
+    if ($container?.contains(e.target as HTMLElement)) {
+      return;
+    }
+    toggleSearch();
+  });
+
   __querySelectorLive('[lo-search]', ($elm: HTMLElement) => {
     $elm.addEventListener('pointerup', (e) => {
       e.preventDefault();
@@ -98,7 +126,7 @@
   });
 </script>
 
-<form class="lo-search">
+<form class="lo-search" transition:persist>
   <div class="_container">
     <lo-search>
       <input type="search" class="_input" placeholder="Search" />

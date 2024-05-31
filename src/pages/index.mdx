@@ -5,43 +5,76 @@ author: 'Olivier Bossel'
 date: '22 April 2024'
 ---
 
-<p class="typo-lead">
+<div class="typo-lead">
   Sugarcss is a [lightningcss](https://lightningcss.dev/) plugin that gives you
-  access to a lot of advances features like color management/modifiers, easy
-  responsive breakpoints declaration and usage, spaces management and a lot more
-  to discover.
-</p>
+  access to a lot of advanced features like **color management/modifiers**, easy
+  **responsive breakpoints** declaration and usage, **spaces management** and a
+  lot more to discover.
+</div>
 
-## Installation
+## Principles
 
-First, install the @lotsof|sugarcss package like so:
+Sugarcss let you define your design tokens in a simple css way and use them everywhere you want in your styles with ease.
 
-```bash
-npm i @lotsof/sugarcss
+```css
+:root {
+  --s-media-mobile: 0 768px;
+  --s-media-tablet: 769px 1024px;
+  --s-media-desktop: 1025px;
+  /* other media... */
+
+  --s-color-main: #9e9161;
+  --s-color-accent: #d2b02d;
+  /* other colors... */
+
+  --s-shade-text: --lighten 20;
+  --s-shade-background: --darken 20;
+  /* other color shades... */
+
+  --s-font-family-sans: 'Roboto', sans-serif;
+  --s-font-family-code: 'Monaco', sans-serif;
+  /* other fonts... */
+
+  /**
+   * And more options to discover like:
+   * - easings
+   * - fonts
+   * - spaces
+   * - sizes
+   * - radius
+   */
+}
 ```
 
-## Using vith Vite
+You will then be able to access these tokens in your styles through `functions`or `mixins` like so:
 
-To use lightningcss with Vite, first install the vite package like so:
+```css
+body {
+  /* Apply the "main" color with the "background" shade (modifier) */
+  background: s-color(main, background);
 
-```bash
-npm i vite -D
+  /* Apply another color on mobile */
+  @media mobile {
+    background: s-color(accent, --darken 10);
+  }
+
+  /* Can easily make specific queries like:
+   * - lt-... : Lower than
+   * - lte-... : Lower than or equal
+   * - e-... : Equal
+   * - gt-... : Greater than
+   * - gte-... : Greater than or equal
+   */
+  @media lt-tablet {
+    background: s-color(accent, --lighten 10);
+  }
+}
 ```
 
-Then, create a `vite.config.js` file at the root of your project with the following content:
+## Using with Vite
 
-```js
-import { sugarize } from '@lotsof/sugarcss';
+Follow the [Vite installation guide](/vite) to get started with **Sugarcss**.
 
-export default {
-  css: {
-    transformer: 'lightningcss',
-    lightningcss: sugarize({
-      minify: true,
-    }),
-  },
-  build: {
-    cssMinify: 'lightningcss',
-  },
-};
-```
+<a href="/vite" title="Lotsof Sugarcss Vite installation guide" class="btn">
+  Get started with Vite
+</a>

@@ -8,6 +8,10 @@
   opacity: 0.3;
   transition: opacity 0.1s ease-out;
 
+  @media mobile {
+    display: none;
+  }
+
   &:hover {
     opacity: 0.6;
   }
@@ -206,6 +210,10 @@
   pointer-events: none;
   mix-blend-mode: overlay;
   opacity: 1;
+
+  @media mobile {
+    opacity: 0.3;
+  }
 }
 
 @keyframes crt {

@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [mdx()],
   vite: {
     resolve: {
-      preserveSymlinks: true,
+      // preserveSymlinks: true,
     },
     css: {
       transformer: 'lightningcss',

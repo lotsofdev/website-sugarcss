@@ -1,5 +1,7 @@
 <script>
-  let active = localStorage.getItem('lo-crt') != null;
+  let active =
+    localStorage.getItem('lo-crt') === null ||
+    localStorage.getItem('lo-crt') === 'true';
 
   const $trigger = document.querySelector('#lo-crt-trigger'),
     $crt = document.querySelector('#lo-crt');
@@ -11,7 +13,7 @@
   }
 
   function hide() {
-    localStorage.removeItem('lo-crt');
+    localStorage.setItem('lo-crt', 'false');
     $crt?.classList.remove('-active');
     $trigger?.classList.remove('-active');
   }
