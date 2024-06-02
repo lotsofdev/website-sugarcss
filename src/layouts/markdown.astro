@@ -14,7 +14,7 @@ import LoFooter from '../components/footer/footer.astro';
 
 import __pictoNewNTasta from '../img/picto-new-n-tasty.svg?raw';
 
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions, fade } from 'astro:transitions';
 
 import '../components/sugarcss/sugarcss.css';
 import.meta.glob('../**/*.css');
@@ -32,7 +32,7 @@ const { title } = Astro.props;
   });
 </script>
 
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.1s' })}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />

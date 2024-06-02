@@ -61,13 +61,17 @@
     position: absolute;
     top: 20vh;
     left: 50%;
-    border: solid 2px s-color(ternary);
+    border: solid 2px s-color(complementary);
     transform: translate(-50%, calc(-50% + 50px));
     @s-radius();
     @s-transition();
 
     .-search & {
       transform: translate(-50%, -50%);
+    }
+
+    @media tablet {
+      top: 10vh;
     }
   }
 
@@ -109,8 +113,12 @@
   }
 
   .advanced-select_items {
-    /* display: flex;
-    flex-wrap: wrap; */
+    display: flex;
+    width: 100%;
+
+    @media tablet {
+      flex-wrap: wrap;
+    }
 
     &::-webkit-scrollbar {
       width: 2px;
@@ -125,10 +133,32 @@
   }
 
   .advanced-select_group {
-    flex: 1;
-    width: 25%;
-    float: left;
-    padding: s-space(20);
+    flex-grow: 1;
+    padding: s-space(30);
+
+    &:nth-child(even) {
+      background: s-color(main, --darken 42);
+
+      @media tablet {
+        background: none;
+      }
+    }
+    &:nth-child(odd) {
+      background: none;
+
+      @media tablet {
+        background: s-color(main, --darken 42);
+      }
+    }
+
+    @media tablet {
+      flex-shrink: 0;
+      flex-grow: 0;
+      width: 33.33%;
+    }
+    @media mobile {
+      width: 100%;
+    }
 
     &[group='Function'] {
       .advanced-select_item {
@@ -170,8 +200,11 @@
   }
   .advanced-select_group-label {
     padding: s-space(5) s-space(10);
+    font: s-font(title);
+    font-size: 22px;
     color: s-color(accent);
     font-weight: bold;
+    text-transform: uppercase;
   }
 
   .advanced-select_group-items {
@@ -181,6 +214,7 @@
 
   .advanced-select_item {
     padding: s-space(5) s-space(10);
+    font: s-font(code);
     border: 2px solid s-color(accent, --alpha 0);
     opacity: 0.3;
     @s-radius();

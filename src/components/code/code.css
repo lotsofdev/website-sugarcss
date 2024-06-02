@@ -4,9 +4,14 @@
   padding: s-space(40) 0;
   border-radius: s-radius();
 
+  @media mobile {
+    font-size: 12px;
+  }
+
   .line {
     display: inline-block;
     padding: s-space(0) s-space(40);
+    white-space: pre;
 
     @media mobile {
       padding: s-space(0) s-space(20);
