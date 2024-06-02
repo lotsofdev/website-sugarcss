@@ -238,13 +238,18 @@
     ._list {
       display: flex;
       flex-direction: column;
-      gap: s-space(20);
+      gap: s-space(10);
     }
     ._item {
       display: flex;
-      gap: s-space(30);
+      gap: s-space(20);
+
+      &:before {
+        display: none;
+      }
     }
     ._description {
+      margin: 0;
     }
     ._priority {
       order: -1;

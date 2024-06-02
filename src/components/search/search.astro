@@ -3,6 +3,7 @@
 ---
 
 <script>
+  import { __idCompliant } from '@lotsof/sugar/string';
   import { __querySelectorLive } from '@lotsof/sugar/dom';
   import __AdvancedSelectElement from '@lotsof/advanced-select-element';
   import { __escapeQueue } from '@lotsof/sugar/keyboard';
@@ -13,11 +14,8 @@
 
   document.addEventListener('advancedSelect.select', (e) => {
     const item = e.detail.item;
-
-    if (item.value === 'install') {
-      navigate('/docs/install');
-    } else if (item.value === 'vite') {
-      navigate('/docs/vite');
+    if (item.slug) {
+      navigate(item.slug);
     } else {
       navigate(`/doc/${__toSlug(item.value)}`);
     }
@@ -71,7 +69,7 @@
         }
 
         sections[item.data.type].items.push({
-          id: item.id,
+          id: __idCompliant(item.id),
           label: item.data.title,
           value: `${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}`,
         });
@@ -84,15 +82,22 @@
           items: [
             {
               id: 'install',
-              label: 'How to install',
+              label: 'Get started',
               value: 'install',
+              slug: '/',
             },
             {
               id: 'vite',
-              label: 'How to use with vite',
+              label: 'Use with vite',
               value: 'vite',
+              slug: '/doc/vite',
             },
-            // ...api,
+            {
+              id: 'settings',
+              label: 'Settings',
+              value: 'settings',
+              slug: '/doc/settings',
+            },
           ],
         },
         ...Object.values(sections),

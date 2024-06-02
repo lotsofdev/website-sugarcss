@@ -1,5 +1,5 @@
 ---
-title: 's-radius'
+title: 's-scrollbar'
 namespace: '@lotsof.sugarcss.css.rule'
 description: function trim() { [native code] }
 type: 'AtRule'
@@ -9,7 +9,7 @@ platform: '[{"name":"css","description":""}]'
 author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@lotsof.dev"}'
 ---
 <div class="docmap-mdx">
-# s-radius
+# s-scrollbar
 <div class="_metas">
 <div class="_type"><span class="_type-label">Type:</span><span class="_type-value">AtRule</span></div>
 <div class="_status"><span class="_status-label">Status:</span><span class="_status-value -stable">stable</span></div>
@@ -18,16 +18,22 @@ author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"http
 </div>
 <div class="_namespace">@lotsof.sugarcss.css.rule</div>
 <div class="_description">
-<p>This declaration allows you to apply a registered raius easily.
-To be able to use this, you need to register at least 1 radius like in the example below:</p>
-
+This rule allows you to style the scrollbar of an element or to hide it completely.
 </div>
 <div class="_params">
 ## Params
 <ol class="_list">
 <li class="_item">
-<span class="_name">name<span class="_required">*</span></span><span class="_default"></span> <span class="_type">String</span>
-<p class="_description">The transition name you want to apply</p>
+<span class="_name">sizeOrHide<span class="_required">*</span></span><span class="_default"></span> <span class="_type">String</span>
+<p class="_description">The size of the scrollbar or "hide" to hide it</p>
+</li>
+<li class="_item">
+<span class="_name">thumbColor<span class="_required">*</span></span><span class="_default"></span> <span class="_type">String</span>
+<p class="_description">The thumb color</p>
+</li>
+<li class="_item">
+<span class="_name">trackColor<span class="_required">*</span></span><span class="_default"></span> <span class="_type">String</span>
+<p class="_description">The track color</p>
 </li>
 </ol>
 </div>
@@ -42,17 +48,9 @@ To be able to use this, you need to register at least 1 radius like in the examp
 <div class="_examples">
 ## Example
 ```css
-:root {
-   --s-radius-default: 10px;
-   --s-radius-special: 20px 10px 12px 34px;
-}
-
 .my-element {
-     @s-radius();
-}
-
-.my-other-element {
-    @s-radius(special);
+     @s-scrollbar(10px, s-color(accent), s-color(accent, --darken 20));
+     @s-scrollbar(hide);
 }
 ```
 </div>

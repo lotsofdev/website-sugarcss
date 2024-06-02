@@ -1,41 +1,39 @@
 ---
-title: 's-sizes'
-namespace: '@lotsof.sugarcss.css.declaration'
+title: 's-transition'
+namespace: '@lotsof.sugarcss.css.function'
 description: function trim() { [native code] }
-type: 'Declaration'
+type: 'Function'
 status: 'stable'
 since: '0.0.1'
 platform: '[{"name":"css","description":""}]'
 author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@lotsof.dev"}'
 ---
 <div class="docmap-mdx">
-# s-sizes
+# s-transition
 <div class="_metas">
-<div class="_type"><span class="_type-label">Type:</span><span class="_type-value">Declaration</span></div>
+<div class="_type"><span class="_type-label">Type:</span><span class="_type-value">Function</span></div>
 <div class="_status"><span class="_status-label">Status:</span><span class="_status-value -stable">stable</span></div>
 <div class="_since"><span class="_since-label">Since:</span><span class="_since-value">0.0.1</span></div>
 <div class="_platform"><span class="_platform-label">Platform:</span><span class="_platform-value">css</span></div>
 </div>
-<div class="_namespace">@lotsof.sugarcss.css.declaration</div>
+<div class="_namespace">@lotsof.sugarcss.css.function</div>
 <div class="_description">
-<p>This variable allows you to register a size value that you can use in your css easily.
-You can register as many size as you want.</p>
-
+This function allows you to apply a transition from the transitions registered ones.
 </div>
 <div class="_params">
 ## Params
 <ol class="_list">
 <li class="_item">
-<span class="_name">min<span class="_required">*</span></span><span class="_default"></span> <span class="_type">String</span>
-<p class="_description">The easing value for the min size</p>
+<span class="_name">name<span class="_required">*</span></span><span class="_default"></span> <span class="_type">String</span>
+<p class="_description">The transition name you want to apply from registered ones</p>
 </li>
+</ol>
+</div>
+<div class="_return">
+## Return
+<ol class="_list">
 <li class="_item">
-<span class="_name">max<span class="_required">*</span></span><span class="_default"></span> <span class="_type">String</span>
-<p class="_description">The easing value for the max size</p>
-</li>
-<li class="_item">
-<span class="_name">easing</span><span class="_default">linear</span> <span class="_type">String</span>
-<p class="_description">The easing value for the size</p>
+<span class="_description">The generated css</span><span class="_default"></span><span class="_type">Css</span>
 </li>
 </ol>
 </div>
@@ -43,13 +41,13 @@ You can register as many size as you want.</p>
 ## Example
 ```css
 :root {
-     --s-sizes: 0px 80px linear;
+   --s-transition-slow: all 0.3s s-easing();
+   --s-transition-default: all 0.2s s-easing();
+   --s-transition-fast: all 0.1s s-easing();
 }
 
 .my-element {
-   font-size: s-size(10); // 8px
-   font-size: s-size(20); // 16px
-   font-size: s-size(100); // 80px
+   transition: s-transition(slow);
 }
 ```
 </div>
