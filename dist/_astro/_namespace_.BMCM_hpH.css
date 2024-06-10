@@ -1381,7 +1381,7 @@ body.-home .lo-header {
 
 .lo-crt_vignette {
   z-index: 1000;
-  background: hsla(calc(var(--s-color-accent-h)), calc((var(--s-color-accent-s)) * 1%), calc((var(--s-color-accent-l)  - 48) * 1%), 1);
+  background: hsla(calc(var(--s-color-main-h)), calc((var(--s-color-main-s)) * 1%), calc((var(--s-color-main-l)  - 48) * 1%), 1);
   pointer-events: none;
   mix-blend-mode: overlay;
   opacity: 1;
@@ -1873,6 +1873,43 @@ body:not(.-home) .lo-markdown {
   margin: 0 !important;
 }
 
+.lo-markdown ._settings ._list {
+  margin-top: calc(((1) * 16 + 0) * 1px);
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .lo-markdown ._settings ._list {
+    margin-top: calc(((1) * 8 + 0) * 1px);
+  }
+}
+
+.lo-markdown ._settings ._item {
+  flex-wrap: wrap;
+  padding: 0;
+  display: flex;
+}
+
+.lo-markdown ._settings ._item:before {
+  display: none;
+}
+
+.lo-markdown ._settings ._name {
+  background: hsla(calc(var(--s-color-main-h)), calc((var(--s-color-main-s)) * 1%), calc((var(--s-color-main-l)  - 40) * 1%), 1);
+  padding: calc(((1) * 24 + 0) * 1px);
+  font-weight: bold;
+  font: normal normal 300 normal 16px / 1.6 Monaco, sans-serif;
+  border-top-left-radius: 6px ;
+  border-bottom-left-radius: 6px ;
+  flex-grow: 1;
+}
+
+.lo-markdown ._settings ._description {
+  padding: calc(((1) * 24 + 0) * 1px);
+  width: 100%;
+  margin: 0 !important;
+}
+
 .lo-markdown ._return ._list {
   margin-top: calc(((1) * 16 + 0) * 1px);
   display: flex;
@@ -1885,7 +1922,6 @@ body:not(.-home) .lo-markdown {
 }
 
 .lo-markdown ._return ._item {
-  flex-wrap: wrap;
   flex: 1;
   padding: 0;
   display: flex;
@@ -1919,6 +1955,15 @@ body:not(.-home) .lo-markdown {
   background: hsla(calc(var(--s-color-main-h)), calc((var(--s-color-main-s)) * 1%), calc((var(--s-color-main-l)  - 40) * 1%), 1);
   padding: calc(((1) * 24 + 0) * 1px);
   font: normal normal 300 normal 16px / 1.6 Monaco, sans-serif;
+}
+
+.lo-markdown ._settings ._type {
+  color: var(--s-color-complementary);
+  background: hsla(calc(var(--s-color-main-h)), calc((var(--s-color-main-s)) * 1%), calc((var(--s-color-main-l)  - 40) * 1%), 1);
+  padding: calc(((1) * 24 + 0) * 1px);
+  font: normal normal 300 normal 16px / 1.6 Monaco, sans-serif;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .lo-markdown ._params ._type {

@@ -155,14 +155,8 @@
       }
     } */
 
-    & {
+    /* & {
       .advanced-select_item {
-        opacity: 0.5;
-
-        /* &:after {
-          content: '(...)';
-          opacity: 0.3;
-        } */
       }
 
       &:has(.advanced-select_item.-preselected),
@@ -173,7 +167,7 @@
           opacity: 1;
         }
       }
-    }
+    } */
   }
   .advanced-select_group-label {
     padding: s-space(5) s-space(10);
