@@ -1,5 +1,5 @@
 .lo-main {
-  @apply s-container;
+  @s-container();
   padding-top: s-space(70);
   margin: 0 auto;
   position: relative;

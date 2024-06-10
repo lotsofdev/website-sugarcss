@@ -3,6 +3,8 @@
 ---
 
 <script>
+  // @ts-ignore
+  // @TODO    check why this is not working
   import { __idCompliant } from '@lotsof/sugar/string';
   import { __querySelectorLive } from '@lotsof/sugar/dom';
   import __AdvancedSelectElement from '@lotsof/advanced-select-element';
@@ -13,7 +15,7 @@
   let cachedItems: any[];
 
   document.addEventListener('advancedSelect.select', (e) => {
-    const item = e.detail.item;
+    const item = (e as CustomEvent).detail.item;
     if (item.slug) {
       navigate(item.slug);
     } else {
@@ -53,10 +55,10 @@
       data.forEach((item: any) => {
         // console.log(item);
 
-        let platform = [];
-        try {
-          platform = JSON.parse(item.data.platform);
-        } catch (e) {}
+        // let platform = [];
+        // try {
+        //   platform = JSON.parse(item.data.platform);
+        // } catch (e) {}
 
         // console.log(platform);
 

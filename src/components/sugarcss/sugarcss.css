@@ -1,7 +1,7 @@
 @import '@lotsof/sugarcss/src/css/sugarcss.css';
 
 :root {
-  --s-setting-verbose: false;
+  --s-setting-verbose: true;
   --s-setting-mobile-first: false;
 
   --s-scrolled-classes-class: scrolled;
@@ -12,9 +12,9 @@
   --s-media-desktop: 1025px;
   --s-media-wide: 1440px;
 
-  --s-layout-min-width: 320px;
-  --s-layout-max-width: 900px;
-  --s-layout-side-padding: 20px;
+  --s-container-default: 320px 900px 20px;
+
+  --s-grid-default: '1 1 2 _ 3 4 4 _ 3 5 5' 20px;
 
   --s-color-main: #9e9161;
   --s-color-accent: #d2b02d;
@@ -64,10 +64,10 @@
   background: s-color(accent, --darken 10);
 }
 
-@apply destyle;
+@s-apply destyle;
 
 .s-container {
-  @apply s-container;
+  @s-container;
   margin: 0 0 !important;
 }
 

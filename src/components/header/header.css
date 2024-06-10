@@ -7,11 +7,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  @apply s-container;
+  @s-container;
   @s-transition();
 
   @media mobile {
-    left: var(--s-layout-side-padding);
+    left: s-container(sidePadding);
     transform: none;
     top: 0;
     height: 250px;
@@ -151,7 +151,7 @@
 
     @media mobile {
       top: 70px;
-      right: var(--s-layout-side-padding);
+      right: s-container(sidePadding);
     }
 
     .scrolled & {

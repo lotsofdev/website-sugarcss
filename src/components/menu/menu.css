@@ -4,9 +4,13 @@
 
   ._item {
     white-space: nowrap;
+    display: flex;
+    align-items: center;
   }
   ._link {
-    display: block;
+    flex-grow: 1;
+    display: flex;
+    gap: s-space(10);
     padding: s-size(15) s-size(30);
 
     &:hover,

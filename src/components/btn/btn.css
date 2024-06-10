@@ -2,7 +2,6 @@
   display: inline-block;
   padding: s-space(20) s-space(30);
   border-radius: s-radius();
-  /* background: s-color(accent); */
   border: 2px solid s-color(accent);
   color: s-color(accent, --lighten 50) !important;
   font-size: s-size(16);

@@ -1,7 +1,7 @@
 .internal-nav {
   width: 200px;
   position: fixed;
-  left: calc(50% + var(--s-layout-max-width) / 2);
+  left: calc(50% + s-container(maxWidth) / 2);
   top: 400px;
   z-index: 10;
   padding: s-space(30);

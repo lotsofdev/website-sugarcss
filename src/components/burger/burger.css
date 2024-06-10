@@ -23,7 +23,7 @@
     left: 0;
     width: 100%;
     height: 0.15em;
-    background: s-color(current);
+    background: s-color(accent);
     transform-origin: 50% 50%;
     transform: translateY(-50%);
     @s-transition (fast);

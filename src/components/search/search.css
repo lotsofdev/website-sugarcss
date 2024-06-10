@@ -57,7 +57,7 @@
   }
 
   ._container {
-    @apply s-container;
+    @s-container;
     position: absolute;
     top: 20vh;
     left: 50%;
@@ -102,9 +102,9 @@
   .advanced-select_dropdown {
     background: s-color(main, background);
     width: clamp(
-      var(--s-layout-min-width),
+      s-container(minWidth),
       calc(80vw),
-      calc(100vw - var(--s-layout-side-padding) * 2)
+      calc(100vw - s-container(sidePadding) * 2)
     );
     @s-radius();
     filter: drop-shadow(s-color(accent, --saturate 100) 0 0 10px)
@@ -179,7 +179,7 @@
     &[group='Mixin'] {
       .advanced-select_item {
         &:before {
-          content: '@apply';
+          content: '@s-apply';
           padding-inline-end: 0.5ch;
           opacity: 0.3;
         }

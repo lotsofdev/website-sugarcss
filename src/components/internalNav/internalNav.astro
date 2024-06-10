@@ -40,8 +40,8 @@
   const $internalNavList = document.querySelector('.internal-nav ._list');
 
   __querySelectorLive('h2', ($title) => {
-    const $li = document.createElement('li');
-    $li.innerHTML = $title.textContent;
+    const $li = document.createElement('li') as HTMLElement;
+    $li.innerHTML = $title.textContent as string;
     $li.id = $title.id;
     $internalNavList?.appendChild($li);
     $li.addEventListener('pointerup', (e) => {
@@ -59,7 +59,7 @@
     new SimpleScrollspy($internalNavList as HTMLElement);
   });
 
-  document.addEventListener('astro:before-preparation', (ev) => {
+  document.addEventListener('astro:before-preparation', () => {
     if ($internalNavList) {
       $internalNavList.innerHTML = '';
     }

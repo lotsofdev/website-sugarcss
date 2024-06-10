@@ -1,11 +1,15 @@
-/* @import './settings/settings.css';
+@import './settings/settings.css';
 @import './sugarcss/sugarcss.css';
 
+@import './advancedSelect/advancedSelect.css';
 @import './bkg/bkg.css';
+@import './btn/btn.css';
 @import './burger/burger.css';
-@import './crt/crt.css';
-@import './header/header.css';
 @import './code/code.css';
+@import './crt/crt.css';
+@import './footer/footer.css';
+@import './header/header.css';
+@import './internalNav/internalNav.css';
 @import './layout/layout.css';
 @import './main/main.css';
 @import './markdown/markdown.css';
@@ -13,4 +17,4 @@
 @import './nav/nav.css';
 @import './search/search.css';
 @import './shortcut/shortcut.css';
-@import './typo/typo.css'; */
+@import './typo/typo.css';
