@@ -88,7 +88,7 @@
   position: static;
 }
 </style>
-<link rel="stylesheet" href="/_astro/_namespace_.BMCM_hpH.css"><script type="module" src="/_astro/hoisted.DRkDgcnc.js"></script><style>[data-astro-transition-scope="astro-2rcqpeji-1"] { view-transition-name: astro-2rcqpeji-1; }@layer astro { ::view-transition-old(astro-2rcqpeji-1) { 
+<link rel="stylesheet" href="/_astro/_namespace_.7jXVKftO.css"><script type="module" src="/_astro/hoisted.CaPBAek2.js"></script><style>[data-astro-transition-scope="astro-2rcqpeji-1"] { view-transition-name: astro-2rcqpeji-1; }@layer astro { ::view-transition-old(astro-2rcqpeji-1) { 
 	animation-duration: 0.1s;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -213,6 +213,10 @@ lot more to discover.</p></div>
 <span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-media-desktop</span><span style="color:#908CAA">:</span><span style="color:#EBBCBA"> 1025</span><span style="color:#31748F">px</span><span style="color:#908CAA">;</span></span>
 <span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> other media... </span><span style="color:#908CAA;font-style:italic">*/</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> layout stuffs (min, max, side-padding) </span><span style="color:#908CAA;font-style:italic">*/</span></span>
+<span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-container-default</span><span style="color:#908CAA">:</span><span style="color:#EBBCBA"> 320</span><span style="color:#31748F">px</span><span style="color:#EBBCBA"> 900</span><span style="color:#31748F">px</span><span style="color:#EBBCBA"> 20</span><span style="color:#31748F">px</span><span style="color:#908CAA">;</span></span>
+<span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-container-wide</span><span style="color:#908CAA">:</span><span style="color:#EBBCBA"> 320</span><span style="color:#31748F">px</span><span style="color:#EBBCBA"> 1440</span><span style="color:#31748F">px</span><span style="color:#EBBCBA"> 20</span><span style="color:#31748F">px</span><span style="color:#908CAA">;</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-color-main</span><span style="color:#908CAA">:</span><span style="color:#908CAA"> #</span><span style="color:#31748F">9e9161</span><span style="color:#908CAA">;</span></span>
 <span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-color-accent</span><span style="color:#908CAA">:</span><span style="color:#908CAA"> #</span><span style="color:#31748F">d2b02d</span><span style="color:#908CAA">;</span></span>
 <span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> other colors... </span><span style="color:#908CAA;font-style:italic">*/</span></span>
@@ -224,6 +228,10 @@ lot more to discover.</p></div>
 <span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-font-family-sans</span><span style="color:#908CAA">:</span><span style="color:#F6C177"> &#39;Roboto&#39;</span><span style="color:#908CAA">,</span><span style="color:#F6C177"> sans-serif</span><span style="color:#908CAA">;</span></span>
 <span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-font-family-code</span><span style="color:#908CAA">:</span><span style="color:#F6C177"> &#39;Monaco&#39;</span><span style="color:#908CAA">,</span><span style="color:#F6C177"> sans-serif</span><span style="color:#908CAA">;</span></span>
 <span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> other fonts... </span><span style="color:#908CAA;font-style:italic">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-grid-special</span><span style="color:#908CAA">:</span><span style="color:#F6C177"> &#39;1 1 2 _ 3 3 3&#39;</span><span style="color:#EBBCBA"> 20</span><span style="color:#31748F">px</span><span style="color:#908CAA">;</span></span>
+<span class="line"><span style="color:#EBBCBA;font-style:italic">  --s-grid-2cols</span><span style="color:#908CAA">:</span><span style="color:#F6C177"> &#39;1 2&#39;</span><span style="color:#EBBCBA"> 20</span><span style="color:#31748F">px</span><span style="color:#908CAA">;</span></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> other grids </span><span style="color:#908CAA;font-style:italic">*/</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic">*</span></span>
 <span class="line"><span style="color:#6E6A86;font-style:italic">   * And more options to discover like:</span></span>
@@ -254,6 +262,20 @@ lot more to discover.</p></div>
 <span class="line"><span style="color:#908CAA;font-style:italic">   */</span></span>
 <span class="line"><span style="color:#908CAA">  @</span><span style="color:#31748F">media</span><span style="color:#E0DEF4"> lt-tablet </span><span style="color:#908CAA">{</span></span>
 <span class="line"><span style="color:#E0DEF4">    background: s-color(accent</span><span style="color:#908CAA">,</span><span style="color:#E0DEF4"> --lighten 10);</span></span>
+<span class="line"><span style="color:#908CAA">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> Apply a registered container </span><span style="color:#908CAA;font-style:italic">*/</span></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  .</span><span style="color:#C4A7E7;font-style:italic">my-container</span><span style="color:#908CAA"> {</span></span>
+<span class="line"><span style="color:#E0DEF4">    @</span><span style="color:#9CCFD8">s-container</span><span style="color:#E0DEF4">()</span><span style="color:#908CAA">;</span></span>
+<span class="line"><span style="color:#908CAA">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> Apply a registered grid like so: </span><span style="color:#908CAA;font-style:italic">*/</span></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  .</span><span style="color:#C4A7E7;font-style:italic">my-grid</span><span style="color:#908CAA"> {</span></span>
+<span class="line"><span style="color:#E0DEF4">    @</span><span style="color:#9CCFD8">s-grid</span><span style="color:#E0DEF4"> (</span><span style="color:#9CCFD8">special</span><span style="color:#E0DEF4">)</span><span style="color:#908CAA">;</span></span>
+<span class="line"><span style="color:#908CAA">  }</span></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  /*</span><span style="color:#6E6A86;font-style:italic"> Or apply a custom grid diredtly </span><span style="color:#908CAA;font-style:italic">*/</span></span>
+<span class="line"><span style="color:#908CAA;font-style:italic">  .</span><span style="color:#C4A7E7;font-style:italic">my-grid</span><span style="color:#908CAA"> {</span></span>
+<span class="line"><span style="color:#E0DEF4">    @</span><span style="color:#9CCFD8">s-grid</span><span style="color:#E0DEF4"> (&#39;1 1 2 _ 3 3 3&#39;, 20</span><span style="color:#9CCFD8">px</span><span style="color:#E0DEF4">)</span><span style="color:#908CAA">;</span></span>
 <span class="line"><span style="color:#908CAA">  }</span></span>
 <span class="line"><span style="color:#E0DEF4">}</span></span>
 <span class="line"></span></code></pre>
