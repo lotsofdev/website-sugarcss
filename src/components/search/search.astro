@@ -10,7 +10,7 @@
   import __AdvancedSelectElement from '@lotsof/advanced-select-element';
   import { __escapeQueue } from '@lotsof/sugar/keyboard';
   import { navigate } from 'astro:transitions/client';
-  import { __toSlug } from '../utils/utils';
+  import { __toSlug } from '@lotsof/website-common/src/components/utils/utils';
 
   let cachedItems: any[];
 
@@ -53,26 +53,26 @@
       const sections: Record<string, any> = {};
 
       data.forEach((item: any) => {
-        // console.log(item);
+        let platforms = [];
+        try {
+          platforms = JSON.parse(item.data.platform);
+        } catch (e) {}
+        // @ts-ignore
+        platforms = platforms.map((p: string) => p.name.toLowerCase());
 
-        // let platform = [];
-        // try {
-        //   platform = JSON.parse(item.data.platform);
-        // } catch (e) {}
+        const group = item.data.namespace.split('.')[3];
 
-        // console.log(platform);
-
-        if (!sections[item.data.type]) {
-          sections[item.data.type] = {
+        if (!sections[group]) {
+          sections[group] = {
             type: 'group',
-            label: item.data.type,
+            label: group,
             items: [],
           };
         }
 
-        sections[item.data.type].items.push({
+        sections[group].items.push({
           id: __idCompliant(item.id),
-          label: item.data.title,
+          label: `${platforms.map((p: string) => `<span class="_platform lo-platform -${p}">${p}</span>`).join('')} ${item.data.title}`,
           value: `${item.id.replace(/\//gm, '.').replace(/\.mdx$/, '')}`,
         });
       });
