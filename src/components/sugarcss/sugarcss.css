@@ -64,7 +64,7 @@
   background: s-color(accent, --darken 10);
 }
 
-@s-apply destyle;
+@include s-destyle;
 
 .s-container {
   @s-container;
