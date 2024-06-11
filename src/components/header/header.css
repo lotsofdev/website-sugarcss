@@ -36,7 +36,7 @@
     top: 0;
     left: 50%;
     width: 100vw;
-    height: 200px;
+    height: 150px;
     transform: translateX(-50%);
     @s-transition();
   }

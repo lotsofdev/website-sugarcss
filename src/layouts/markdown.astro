@@ -24,7 +24,8 @@ import __packageJson from '../../package.json';
 
 const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
 
-const { title } = Astro.props;
+// @ts-ignore
+const { frontmatter, title } = Astro.props;
 ---
 
 <script>
@@ -47,7 +48,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta property="og:description" content={__packageJson.description} />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={frontmatter?.title ?? title} />
     <meta property="og:type" content="article" />
     <meta
       property="og:image"
@@ -55,7 +56,7 @@ const { title } = Astro.props;
     />
     <meta property="og:site_name" content="Lotsof | Sugarcss" />
     <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
-    <title>{title}</title>
+    <title>{frontmatter?.title ?? title}</title>
     <ViewTransitions />
   </head>
   <body>

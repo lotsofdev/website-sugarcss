@@ -435,7 +435,7 @@ body.-home .lo-header {
 .lo-header:before {
   content: "";
   width: 100vw;
-  height: 200px;
+  height: 150px;
   display: block;
   position: absolute;
   top: 0;
@@ -1133,6 +1133,19 @@ body.-home .lo-header {
   background: hsla(calc(var(--s-color-main-h)), calc((var(--s-color-main-s)) * 1%), calc((var(--s-color-main-l)  - 40) * 1%), 1) !important;
 }
 
+.astro-code::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.astro-code::-webkit-scrollbar-track {
+  background-color: hsla(calc(var(--s-color-accent-h)), calc((var(--s-color-accent-s)) * 1%), calc((var(--s-color-accent-l)  - 40) * 1%), 1);
+}
+
+.astro-code::-webkit-scrollbar-thumb {
+  background-color: var(--s-color-accent);
+}
+
 @media (max-width: 768px) {
   .astro-code {
     font-size: 12px;
@@ -1553,7 +1566,7 @@ body.-home .lo-header {
   padding: calc(((1) * 24 + 0) * 1px);
   width: 200px;
   position: fixed;
-  top: 400px;
+  top: 300px;
 }
 
 @media (max-width: 1024px) {
@@ -1804,16 +1817,26 @@ body:not(.-home) .lo-markdown {
 }
 
 .lo-markdown ._platform-value {
-  color: hsla(calc(var(--s-color-accent-h)), calc((var(--s-color-accent-s)) * 1%), calc((var(--s-color-accent-l)  + 20) * 1%), 1);
+  align-items: center;
+  gap: calc(((1) * 8 + 0) * 1px);
+  font: normal normal 300 normal 16px / 1.6 Monaco, sans-serif;
   font-size: calc(((1) * 9.6 + 0) * 1px);
-  background: hsla(calc(var(--s-color-accent-h)), calc((var(--s-color-accent-s)) * 1%), calc((var(--s-color-accent-l)  - 30) * 1%), 1);
   padding: calc(((1) * 4 + 0) * 1px) calc(((1) * 8 + 0) * 1px);
   text-transform: uppercase;
-  letter-spacing: .1em;
+  border-radius: 6px ;
+  display: flex;
 }
 
-.lo-markdown ._platform-value {
-  border-radius: 6px ;
+.lo-markdown ._platform-value.-css {
+  background: hsla(calc(var(--s-color-accent-h)), calc((var(--s-color-accent-s)) * 1%), calc((var(--s-color-accent-l)  - 30) * 1%), 1);
+}
+
+.lo-markdown ._platform-value.-js {
+  background: hsla(calc(var(--s-color-accent-h)), calc((var(--s-color-accent-s)) * 1%), calc((var(--s-color-accent-l)  - 30) * 1%), 1);
+}
+
+.lo-markdown ._platform-value.-node {
+  background: hsla(calc(var(--s-color-complementary-h)), calc((var(--s-color-complementary-s)) * 1%), calc((var(--s-color-complementary-l)  - 30) * 1%), 1);
 }
 
 .lo-markdown ._params ._list {
@@ -2147,6 +2170,10 @@ body:not(.-home) .lo-markdown {
   text-transform: uppercase;
   border-radius: 6px ;
   display: flex;
+}
+
+.lo-platform.-css {
+  background: hsla(calc(var(--s-color-accent-h)), calc((var(--s-color-accent-s)) * 1%), calc((var(--s-color-accent-l)  - 30) * 1%), 1);
 }
 
 .lo-platform.-js {
