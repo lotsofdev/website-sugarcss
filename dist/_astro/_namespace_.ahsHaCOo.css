@@ -110,6 +110,11 @@
   --s-color-info-s: 100;
   --s-color-info-l: 50;
   --s-color-info-a: 1;
+  --s-color-php: #777cb5;
+  --s-color-php-h: 235;
+  --s-color-php-s: 29.5;
+  --s-color-php-l: 58.8;
+  --s-color-php-a: 1;
   --s-font-default-family: Roboto, sans-serif;
   --s-font-default-size: 16px;
   --s-font-default-lineHeight: 1.6em;
@@ -391,6 +396,9 @@ body {
 
 .lo-header {
   z-index: 250;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   flex-direction: column;
   align-items: center;
   height: 300px;
@@ -1154,8 +1162,8 @@ body.-home .lo-header {
 
 .astro-code .line {
   padding: calc(((1) * 0 + 0) * 1px) calc(((1) * 32 + 0) * 1px);
-  white-space: pre;
-  display: inline-block;
+  line-height: .3em;
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -1548,6 +1556,9 @@ body.-home .lo-header {
   background: linear-gradient(to bottom, transparent 0%, hsla(calc(var(--s-color-main-h)), calc((var(--s-color-main-s)) * 1%), calc((var(--s-color-main-l)  - 40) * 1%), 1) 100%);
   text-align: center;
   padding: calc(((1) * 40 + 0) * 1px) calc(((1) * 24 + 0) * 1px);
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .footer p {
@@ -1564,6 +1575,9 @@ body.-home .lo-header {
   left: calc(50% + var(--s-container-default-max-width) / 2);
   z-index: 10;
   padding: calc(((1) * 24 + 0) * 1px);
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: 200px;
   position: fixed;
   top: 300px;
@@ -1766,8 +1780,8 @@ body:not(.-home) .lo-markdown {
 
 .lo-markdown ._status-value {
   color: var(--s-color-success);
-  font-size: calc(((1) * 9.6 + 0) * 1px);
   background: hsla(calc(var(--s-color-success-h)), calc((var(--s-color-success-s)) * 1%), calc((var(--s-color-success-l)  - 30) * 1%), 1);
+  font-size: calc(((1) * 9.6 + 0) * 1px);
   padding: calc(((1) * 4 + 0) * 1px) calc(((1) * 8 + 0) * 1px);
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -1775,6 +1789,11 @@ body:not(.-home) .lo-markdown {
 
 .lo-markdown ._status-value {
   border-radius: 6px ;
+}
+
+.lo-markdown ._status-value.-beta {
+  color: hsla(calc(var(--s-color-error-h)), calc((var(--s-color-error-s)) * 1%), calc((var(--s-color-error-l)  + 30) * 1%), 1);
+  background: hsla(calc(var(--s-color-error-h)), calc((var(--s-color-error-s)) * 1%), calc((var(--s-color-error-l)  - 20) * 1%), 1);
 }
 
 .lo-markdown ._since {
@@ -1837,6 +1856,10 @@ body:not(.-home) .lo-markdown {
 
 .lo-markdown ._platform-value.-node {
   background: hsla(calc(var(--s-color-complementary-h)), calc((var(--s-color-complementary-s)) * 1%), calc((var(--s-color-complementary-l)  - 30) * 1%), 1);
+}
+
+.lo-markdown ._platform-value.-php {
+  background: hsla(calc(var(--s-color-php-h)), calc((var(--s-color-php-s)) * 1%), calc((var(--s-color-php-l)  - 10) * 1%), 1);
 }
 
 .lo-markdown ._params ._list {
@@ -2182,6 +2205,10 @@ body:not(.-home) .lo-markdown {
 
 .lo-platform.-node {
   background: hsla(calc(var(--s-color-complementary-h)), calc((var(--s-color-complementary-s)) * 1%), calc((var(--s-color-complementary-l)  - 30) * 1%), 1);
+}
+
+.lo-platform.-php {
+  background: hsla(calc(var(--s-color-php-h)), calc((var(--s-color-php-s)) * 1%), calc((var(--s-color-php-l)  - 10) * 1%), 1);
 }
 
 .lo-shortcut {

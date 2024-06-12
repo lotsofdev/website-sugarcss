@@ -25,6 +25,7 @@
   --s-color-warning: #ffd500;
   --s-color-error: #ff003b;
   --s-color-info: #00ffff;
+  --s-color-php: #777cb5;
 
   --s-shade-text: --lighten 20;
   --s-shade-text-main: --lighten 35;
