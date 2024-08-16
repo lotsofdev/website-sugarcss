@@ -22,7 +22,7 @@ export default defineConfig({
   },
   markdown: {
     syntaxHighlight: 'shiki',
-    shikiConfig: {
+    shikTConfig: {
       theme: __shikiLotsofTheme,
       langs: [],
       wrap: true,
